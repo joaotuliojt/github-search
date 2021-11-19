@@ -5,8 +5,11 @@ import SearchIcon from "../../assets/search_icon.svg"
 import { useState } from 'react'
 import {Link} from "react-router-dom"
 
+interface HomeProps{
+  baseUrl: string;
+}
 
-export function Home(){
+export function Home({baseUrl}:HomeProps){
   const [name, setName] = useState<string>('');
 
   return(
@@ -25,7 +28,7 @@ export function Home(){
         onKeyPress={(e)=>{
           console.log(e);
           if(e.code === "Enter"){
-            const baseUrl = "http://localhost:3000"
+            
             window.location.replace(`${baseUrl}/${name}`)
           }
         }}

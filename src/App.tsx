@@ -5,12 +5,11 @@ import { Profile } from './components/Profile/Profile';
 import { GlobalStyle } from './styles/global';
 
 function App() {
-
-  
+  const baseUrl = window.location.href;
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
+        <Route path="/" element={<Home baseUrl={baseUrl}/>}></Route>
         <Route path="/:username" element={<Profile/>}></Route>
       </Routes>
       <GlobalStyle></GlobalStyle>
