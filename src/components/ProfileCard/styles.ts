@@ -45,8 +45,8 @@ export const Container = styled.div<ContainerProps>`
         grid-template-rows: 1fr 1fr;
         gap: 7px;
         @media(max-width: 900px){
-          place-items: center;
           display: flex;
+          justify-content: center;
           flex-wrap: wrap;
         }
         span:nth-child(1){

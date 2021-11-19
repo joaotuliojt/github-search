@@ -5,13 +5,11 @@ import SearchIcon from "../../assets/search_icon.svg"
 import { useState } from 'react'
 import {Link} from "react-router-dom"
 
-interface HomeProps{
-  baseUrl: string;
-}
 
-export function Home({baseUrl}:HomeProps){
+
+export function Home(){
   const [name, setName] = useState<string>('');
-
+  const baseUrl = window.location.href;
   return(
     <Container>
       <div className="logo">
@@ -28,13 +26,14 @@ export function Home({baseUrl}:HomeProps){
         onKeyPress={(e)=>{
           console.log(e);
           if(e.code === "Enter"){
-            
-            window.location.replace(`${baseUrl}/${name}`)
+            if(name){
+              window.location.replace(`${baseUrl}${name}`)
+            }
           }
         }}
         placeholder="Enter user name" 
       />
-      <Link to={`/${name}`} className="btn">
+      <Link to={`/${name}`} className="btn" onClick={()=>{setName('')}}>
         Search <img src={SearchIcon} alt="Procurar usuário"/>
       </Link>
     
