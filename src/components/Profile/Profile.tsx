@@ -20,16 +20,18 @@ export function Profile(){
     if(username){
       getUser(username).then(user =>{
         setUser(user);
+        if(!user.id){
+          throw new Error('Username inválido')
+        }
         toast.success("Usuário encontrado!",{
           pauseOnHover: false,
           autoClose: 2000,
           hideProgressBar: true
         });
-      }).catch(()=>{
-        toast.error("Usuário não encontrado, redirecionando...",{
-          autoClose: 5000,
-          pauseOnHover: false,
-        })
+      }).catch((err)=>{
+        const href = window.location.href;
+        const baseUrl = href.split('/')[0]
+        window.location.replace(baseUrl+'error');
         
       })
     } // eslint-disable-next-line

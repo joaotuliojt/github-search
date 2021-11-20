@@ -57,6 +57,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.12rem;
     border-radius: 5px;
     transition: filter 0.25s;
+    text-decoration: none;
     &:hover{
       filter: brightness(0.8);
     }
