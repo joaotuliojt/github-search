@@ -30,6 +30,8 @@ export function RepoList({url}: RepositoryLinkProps){
         description={repository.description}
         language={repository.language}
         id={repository.id}
+        forks={repository.forks}
+        watchers={repository.watchers}
       />
      )}
 

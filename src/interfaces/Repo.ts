@@ -3,4 +3,6 @@ export interface RepositoreTypes {
   description?: string;
   language: string;
   id: number;
+  forks: number;
+  watchers: number;
 }
